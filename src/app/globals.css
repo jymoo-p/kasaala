@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 14% 10%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 20% 90%;
+    --brand: 27 72% 50%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 222 20% 8%;
+      --foreground: 210 20% 94%;
+      --muted: 217 18% 14%;
+      --muted-foreground: 215 14% 55%;
+      --border: 217 18% 20%;
+      --brand: 27 72% 58%;
+    }
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-white dark:bg-[#0f1117] text-[#0d1117] dark:text-[#e8eaf0];
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Malayalam text gets the Manjari font */
+  .font-malayalam,
+  [lang="ml"] {
+    font-family: 'Manjari', sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manjari', 'Inter', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus ring */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white dark:ring-offset-[#0f1117];
+  }
+}
+
+@layer components {
+  /* Article prose styles */
+  .article-body {
+    font-family: 'Manjari', sans-serif;
+    @apply text-lg leading-relaxed text-[#1a1a2e] dark:text-[#d8dae8];
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.9;
+  }
+
+  .article-body h2 {
+    @apply text-2xl font-bold mt-10 mb-4 text-[#0d1117] dark:text-[#e8eaf0];
+  }
+
+  .article-body h3 {
+    @apply text-xl font-bold mt-8 mb-3 text-[#0d1117] dark:text-[#e8eaf0];
+  }
+
+  .article-body p {
+    @apply mb-6;
+  }
+
+  .article-body blockquote {
+    @apply border-l-4 border-brand-500 pl-5 italic my-8
+           text-[#444] dark:text-[#aaa];
+  }
+
+  .article-body a {
+    @apply text-brand-600 dark:text-brand-400 underline underline-offset-2
+           hover:text-brand-700 dark:hover:text-brand-300;
+  }
+
+  /* Card hover lift */
+  .card-lift {
+    @apply transition-transform duration-200 ease-out hover:-translate-y-0.5;
+  }
+}
