@@ -75,7 +75,7 @@ export function ShareStrip({ title, url }: ShareStripProps) {
           key={p.name}
           onClick={() => openShare(p.getUrl(url, title))}
           aria-label={`Share on ${p.name}`}
-          className={`p-2 rounded-lg text-neutral-400 dark:text-neutral-500
+          className={`p-2 rounded-lg text-neutral-500 dark:text-neutral-400
                       transition-colors duration-150 ${p.color}`}
         >
           {p.icon}

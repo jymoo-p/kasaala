@@ -141,7 +141,7 @@ export default function ArticlePage({ params }: PageProps) {
           </p>
         )}
 
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
           <p className="text-sm text-neutral-400 dark:text-neutral-500">{authorName}</p>
           <ShareStrip title={post.titleEn ?? post.title} url={articleUrl} />
         </div>
