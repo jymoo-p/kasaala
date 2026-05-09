@@ -1,6 +1,7 @@
 "use client";
 
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { AdSensePlaceholder } from "./AdSensePlaceholder";
 
 interface Props {
@@ -24,7 +25,7 @@ export function MarkdownBody({ body }: Props) {
     if (isParagraph) paraCount++;
 
     result.push(
-      <ReactMarkdown key={i}>{block}</ReactMarkdown>
+      <ReactMarkdown key={i} rehypePlugins={[rehypeRaw]}>{block}</ReactMarkdown>
     );
 
     if (isParagraph && paraCount === 3 && !adInserted) {
